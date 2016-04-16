@@ -1,0 +1,15 @@
+{
+  "name": "coda",
+  "version": "0.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "Casper Beyer <contact@caspervonb.com>",
+  "bin": "bin/coda",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "coda-chrome": "github:codajs/coda-chrome",
+    "coda-hotpatch": "github:codajs/coda-hotpatch"
+  }
+}

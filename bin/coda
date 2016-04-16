@@ -1,0 +1,47 @@
+#!/usr/bin/env node
+
+var child_process = require('child_process');
+var fs = require('fs');
+var path = require('path');
+
+var argv = process.argv.slice(2);
+if (argv.length < 1) {
+  return usage();
+}
+
+try {
+  run(argv[0], argv.slice(1));
+} catch (error) {
+  fail(error);
+}
+
+function run(command, args) {
+  for (var i = 0; module.paths.length; i++) {
+    var dirname = module.paths[i];
+
+    var command = 'coda-' + argv[0];
+    if (fs.existsSync(path.join(dirname, command))) {
+      var child = child_process.spawn(process.execPath, [
+        path.join(dirname, command, 'bin', command),
+      ].concat(argv.slice(1)), {
+        stdio: 'inherit',
+      });
+
+      break;
+    }
+  }
+}
+
+function usage() {
+  process.stdout.write([
+    'Usage: coda <command>',
+    '',
+  ].join('\n'));
+
+  process.exit(0);
+}
+
+function fail(error) {
+  process.stderr.write(error + '\n');
+  process.exit(1);
+}
