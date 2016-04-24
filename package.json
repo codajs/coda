@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "coda-chrome": "github:codajs/coda-chrome",
-    "coda-hotpatch": "github:codajs/coda-hotpatch"
+    "coda-hotpatch": "github:codajs/coda-hotpatch",
+    "coda-repl": "github:codajs/coda-repl"
   }
 }
